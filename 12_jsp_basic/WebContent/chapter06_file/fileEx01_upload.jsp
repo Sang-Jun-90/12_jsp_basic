@@ -1,3 +1,4 @@
+<%@page import="java.util.Enumeration"%>
 <%@page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
 <%@page import="com.oreilly.servlet.MultipartRequest"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
@@ -37,8 +38,39 @@
 												maxSize,
 												"utf-8",
 												new DefaultFileRenamePolicy());
+		
+		///////////////////////////////////////////////////////////////////////////////////////////////////
+				
+		// enctype으로 왔기 때문에 request.getParameter가 불가능하고
+		// MultipartRequest 객체의 getParameter를 사용해야 한다.
+		String userName = multi.getParameter("userName");
+		
+		Enumeration<?> files = multi.getFileNames();  // input type이 file 인 모든 파라메터를 배열로 받아온다.
+		
+		if(files.hasMoreElements()){  // 다음 정보가 있으면 (== rs.nex() 와 유사)
+			
+			String element 		    = (String)files.nextElement(); 				// file을 반환
+			String serverFileName   = multi.getFilesystemName(element);   // 서버에 업로드된 파일명을 반환
+			String originalFileName = multi.getOriginalFileName(element); // 사용자가 업로드한 파일명을 반환한다.
+			String fileType         = multi.getContentType(element); // 업로드된 파일의 타입을 반환한다.
+			long fileLength         = multi.getFile(element).length(); // 파일의 크기를 반환한다. (long 타입)
+			
+			String result = "-----------------------<br>";
+			  result += "사용자 이름 : " + userName + "<br>";
+			  result += "파라메타 이름 : " + element + "<br>";
+			  result += "서버에 업로드된 파일 이름 : " + serverFileName +"<br>"; 
+			  result += "사용자가 업로드한 파일 이름 : " + originalFileName + "<br>";
+			  result += "파일 타입 : " + fileType + "<br>";
+			  result += "파일 크기 : " + fileLength + "<br>";
+			  result += "-----------------------<br>";
+			  
+			  out.println(result);
+			
+			
+		}
 	
 	%>
+	
 
 </body>
 </html>
