@@ -22,9 +22,11 @@
 
 	<hr>
 	<% 
-		Date now = new Date();
+		Date date = new Date();
+	
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		String strDate = sdf.format(now);
+		
+		String strDate = sdf.format(date);
 	%>
 	
 	오늘의 날짜 : <%=strDate %>

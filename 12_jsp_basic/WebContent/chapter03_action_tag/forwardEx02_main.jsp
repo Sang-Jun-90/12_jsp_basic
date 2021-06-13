@@ -7,7 +7,7 @@
 <title>forward</title>
 </head>
 <body>
- 
+ <!-- RLEncoder.encode 는 자바문법이라서 %> 를사용하는 것이다 -->
  	
 	<jsp:forward page="forwardEx02_target.jsp">
 		<jsp:param value='<%= URLEncoder.encode("팀 버너스 리","utf-8")%>' name="sampleData1"/>
@@ -19,6 +19,7 @@
 		//String sampleData2 = "Timothy John Berners Lee";
 		//response.sendRedirect("forwardEx02_target.jsp?sampleData1=" + sampleData1 + "&sampleData2=" + sampleData2);
 	%>
+
 
 </body>
 </html>

@@ -32,6 +32,19 @@
 	<%	
 		}
 	%>
+	
+	<%for (int i = -1 ; i < 10 ; i++){
+	
+	%>	
+		출력 : <%=i + 1 %> <br>	
+	<% 	
+	}
+	%>
+			Date now = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		String strDate = sdf.format(now);
+	
+	
 
 </body>
 </html>

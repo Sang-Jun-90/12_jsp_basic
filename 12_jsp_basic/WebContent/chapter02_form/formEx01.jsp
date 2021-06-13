@@ -15,7 +15,7 @@
 
 </head>
 <body>
-
+	<!--form 은 name으로 변수가 넘어가므로 name 이 매우 중요하다. -->
 	<form action="formEx01Pro.jsp" method="post" name="f">
 		<fieldset>
 			<!-- form 태그 안에 있는 name 값이 서버로 전송이 된다. -->
