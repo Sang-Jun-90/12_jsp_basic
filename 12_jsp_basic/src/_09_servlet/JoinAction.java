@@ -43,7 +43,7 @@ public class JoinAction extends HttpServlet {
 			}
 		}
 		// request.setAttribute ("속성이름", 데이터);
-		// setAttribute()데이터를 이용해서 자바의 데이터를 화명으로 전달한다.
+		// setAttribute()데이터를 이용해서 자바의 데이터를 화으로 전달한다.
 		request.setAttribute("mdto", new MemberDTO(id, pw, name, email, hobby));
 		
 		RequestDispatcher dis = request.getRequestDispatcher("chapter09_servlet/02_joinAction.jsp");
